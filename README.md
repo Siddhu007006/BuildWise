@@ -64,8 +64,9 @@ SUPABASE_KEY=your_supabase_anon_public_key
 ```
 
 You can find these in the [Supabase Dashboard](https://supabase.com) → **Settings** → **API**:
-- **Project URL** → `SUPABASE_URL`
-- **anon / public** key → `SUPABASE_KEY`
+you can use this keys and url 
+- **Project URL** → `https://bmltansxnqofkxcfpqmw.supabase.co`
+- **anon / public** key → `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJtbHRhbnN4bnFvZmt4Y2ZwcW13Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwNzQ4NDcsImV4cCI6MjA4ODY1MDg0N30.Sb5S26IKnaoUKCWTBe4P9Ao4kiO_Cx71LYPq7Hma1vk`
 
 > **Note:** If credentials are not configured, the backend will still run but database storage (save/load projects) will be disabled.
 
