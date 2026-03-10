@@ -526,7 +526,7 @@ def save_project():
             return jsonify({"success": True, "data": []}), 201
             
         data = request.json
-        response = supabase.table("projects").insert(data).execute()
+        response = supabase.table("project").insert(data).execute()
         return jsonify({"success": True, "data": response.data}), 201
     except Exception as e:
         return jsonify({"error": str(e)}), 500
@@ -540,7 +540,7 @@ def get_projects():
         if not supabase:
             return jsonify({"projects": []}), 200
             
-        response = supabase.table("projects").select("*").order("created_at", desc=True).execute()
+        response = supabase.table("project").select("*").order("created_at", desc=True).execute()
         return jsonify({"projects": response.data}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
@@ -554,7 +554,7 @@ def get_project(project_id):
         if not supabase:
             return jsonify({"error": "Database not configured"}), 404
             
-        response = supabase.table("projects").select("*").eq("id", project_id).single().execute()
+        response = supabase.table("project").select("*").eq("id", project_id).single().execute()
         return jsonify({"project": response.data}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
@@ -568,7 +568,7 @@ def delete_project(project_id):
         if not supabase:
             return jsonify({"success": True}), 200
             
-        response = supabase.table("projects").delete().eq("id", project_id).execute()
+        response = supabase.table("project").delete().eq("id", project_id).execute()
         return jsonify({"success": True}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
