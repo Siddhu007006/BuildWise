@@ -45,23 +45,37 @@ ollama pull granite:3.3-2b
 ```bash
 cd backend
 python -m venv venv
-source venv/Scripts/activate  # On Windows
+venv\Scripts\activate.bat      # Windows (CMD)
+# .\venv\Scripts\Activate.ps1  # Windows (PowerShell)
+# source venv/bin/activate     # macOS / Linux
 pip install -r requirements.txt
 ```
 
-Create a `.env` file in the `/backend` directory with your Supabase credentials:
-```env
-SUPABASE_URL=your_supabase_project_url
-SUPABASE_KEY=your_supabase_anon_key
+### 3. Supabase Setup
+Copy the environment template and fill in your credentials:
+```bash
+cp .env.example .env
 ```
 
-Run the backend server:
+Open `backend/.env` and set your Supabase project URL and anon public key:
+```env
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_KEY=your_supabase_anon_public_key
+```
+
+You can find these in the [Supabase Dashboard](https://supabase.com) → **Settings** → **API**:
+- **Project URL** → `SUPABASE_URL`
+- **anon / public** key → `SUPABASE_KEY`
+
+> **Note:** If credentials are not configured, the backend will still run but database storage (save/load projects) will be disabled.
+
+### 4. Run the Backend
 ```bash
 python app.py
 ```
 *(Runs on http://localhost:5000)*
 
-### 3. Frontend Setup (Next.js)
+### 5. Frontend Setup (Next.js)
 ```bash
 cd frontend
 npm install

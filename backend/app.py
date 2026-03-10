@@ -34,7 +34,12 @@ print("=" * 70)
 print("🏗️  Construction Planning System")
 print("🤖 Model:", MODEL_ID)
 print("📍 Running locally via Ollama")
-print("🗄️  Supabase: Connected" if SUPABASE_URL else "🗄️  Supabase: Not configured")
+if SUPABASE_URL and SUPABASE_KEY:
+    print("🗄️  Supabase: Connected")
+else:
+    print("⚠️  Supabase credentials not configured. Please create backend/.env.")
+    print("   Copy backend/.env.example to backend/.env and add your Supabase keys.")
+    print("   The server will run, but database storage is disabled.")
 print("=" * 70)
 
 # ======================================================
